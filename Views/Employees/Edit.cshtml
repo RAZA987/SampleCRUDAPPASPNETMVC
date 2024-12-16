@@ -1,0 +1,83 @@
+﻿@model SampleCRUDAPPASPNETMVC.Models.Employee
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1 class="text-center text-primary mb-4">Edit Employee</h1>
+
+<hr class="my-4" />
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form asp-action="Edit" class="card p-4 shadow-sm rounded">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <!-- Hidden Field for Portalid -->
+                <input type="hidden" asp-for="Portalid" />
+
+                <!-- First Row (Employee Name and Designation) -->
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Empname" class="control-label text-dark"></label>
+                            <input asp-for="Empname" class="form-control form-control-sm" placeholder="Employee Name" />
+                            <span asp-validation-for="Empname" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Designation" class="control-label text-dark"></label>
+                            <input asp-for="Designation" class="form-control form-control-sm" placeholder="Designation" />
+                            <span asp-validation-for="Designation" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Second Row (Grade and Department ID) -->
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Grade" class="control-label text-dark"></label>
+                            <input asp-for="Grade" class="form-control form-control-sm" placeholder="Grade" />
+                            <span asp-validation-for="Grade" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="DepId" class="control-label text-dark"></label>
+                            <input asp-for="DepId" class="form-control form-control-sm" placeholder="Department ID" />
+                            <span asp-validation-for="DepId" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Third Row (Department Name) -->
+                <div class="row mb-3">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label asp-for="Deptname" class="control-label text-dark"></label>
+                            <input asp-for="Deptname" class="form-control form-control-sm" placeholder="Department Name" />
+                            <span asp-validation-for="Deptname" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="form-group text-center mt-3">
+                    <input type="submit" value="Save" class="btn btn-primary btn-sm px-4 py-2" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="text-center mt-4">
+    <a asp-action="Index" class="btn btn-secondary btn-sm px-4 py-2">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
